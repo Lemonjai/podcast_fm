@@ -14,7 +14,7 @@
     <% elsif notice %>
       <p class="notice"><%= notice %></p>
     <% end %>
-    <% if !current_page?(root_path) %>
+    
       <header id="main_header" class="cf"> 
         <div class="wrapper_wide">
           <%= link_to "Podcast.fm", root_path, id: "logo" %>
@@ -32,7 +32,7 @@
           </nav>
         </div>
       </header>
-    <% end %>  
+     
     <%= yield %>
   </body>
 </html>
