@@ -9,7 +9,7 @@
           <%= link_to podcast do %>
             <% if podcast.episodes.count > 0 %>
               <li>
-                <img src="images/podcast1.jpg" alt="MFW">
+                <%= image_tag podcast.thumbnail.url(:medium) %>
                 <div class="podcast_overview"> 
                   <h2><%= podcast.title %></h2>
                   <p class="episode_count"><%= podcast.episodes.count %></p>
