@@ -7,13 +7,15 @@
       <ul>
         <% @podcasts.each do |podcast| %>
           <%= link_to podcast do %>
-            <li>
-              <img src="images/podcast1.jpg" alt="MFW">
-              <div class="podcast_overview"> 
-                <h2><%= podcast.title %></h2>
-                <p class="episode_count">20 Episode</p>
-              </div>
-            </li>
+            <% if podcast.episodes.count > 0 %>
+              <li>
+                <img src="images/podcast1.jpg" alt="MFW">
+                <div class="podcast_overview"> 
+                  <h2><%= podcast.title %></h2>
+                  <p class="episode_count"><%= podcast.episodes.count %></p>
+                </div>
+              </li>
+            <% end %>
           <% end %>
         <% end %>
       </ul>
