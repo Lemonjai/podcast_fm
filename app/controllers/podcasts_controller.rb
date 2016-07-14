@@ -15,6 +15,11 @@ class PodcastsController < ApplicationController
   def dashboard
   end
 
+  def destroy
+    @podcast.destroy
+    redirect_to root_path
+  end
+
   private
 
     def find_episode
