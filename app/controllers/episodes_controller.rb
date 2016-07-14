@@ -1,4 +1,7 @@
 class EpisodesController < ApplicationController
+
+  require 'will_paginate/array'
+
   before_action :authenticate_podcast!, except: [:show]
   before_action :require_permission, except: [:show]
   before_action :find_podcast
@@ -18,7 +21,7 @@ class EpisodesController < ApplicationController
   end
 
   def show
-    @episodes = Episode.where(podcast_id: @podcast).order("created_at DESC").reject { |e| e.id == @episode.id}
+    @episodes = Episode.where(podcast_id: @podcast).order("created_at DESC").limit(5).reject { |e| e.id == @episode.id }.paginate(:page => params[:page], :per_page => 5)
   end
 
   def edit
